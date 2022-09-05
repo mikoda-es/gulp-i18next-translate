@@ -39,6 +39,12 @@ var translate = function (opt) {
       this.emit('error', new PluginError(PLUGIN_NAME, 'Streaming not supported'));
       return callback();
     }
+    
+    var langs = Object.keys(locales)
+    for (var key in locales) {
+      locales[key]['__lang__'] = key;
+      locales[key]['__langs__'] = langs;
+    }
 
 
     for (var locale in locales) {
